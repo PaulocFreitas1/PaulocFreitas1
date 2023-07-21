@@ -1,10 +1,7 @@
-- 👋 Hi, I’m @PaulocFreitas1
-- 👀 I’m interested very chances
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on my class, haha
-- 📫 How to reach me ...
+Olá, bem-vindo👋
 
-<!---
-PaulocFreitas1/PaulocFreitas1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+⚡ Atualmente cursando programação Frontend e Designer
+🔭 Meu hobbie é estudar
+💬 Leio livros, assisto o que gosto e gosto de andar de skate
+🎯 Meu objetivo é ir além do Frontend, seja mobile ou PC
+👀 Você pode me encontrar em: instagram.com/paulo_cesar013f
