@@ -1,6 +1,5 @@
-#Estudante 
-
-##Olá, bem-vindo👋
+<h1>Estudante</h1>
+<h2>Olá, bem-vindo👋</h2>
 
 ⚡ Atualmente cursando QA 
 🔭 Meu hobbie é ver o ceu
