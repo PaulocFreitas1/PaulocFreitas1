@@ -1,0 +1,50 @@
+html{
+font-family: 'Noto Sans Old Permic', sans-serif;
+}
+header{}
+
+#cabecalho{ background-color: aquamarine;
+    padding: 16px;
+    height: 80px;
+    display: flex;
+    justify-items: center;
+    
+}
+#text{display: flex;
+
+}
+#cabecalho h1{display: block;}
+   ul{ 
+   }
+h1{
+    font-size: 36px;
+}
+li{
+    list-style:none;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(175, 68, 68);
+}
+a:hover{cursor: pointer;
+    color: white;}
+    section{
+
+}
+h2,h3{
+
+}
+div{
+
+}
+ul{padding: 12px;
+
+}
+.perfil{
+    height:150px;
+    border-radius: 50px;
+}
+.lista{
+list-style: circle;
+}

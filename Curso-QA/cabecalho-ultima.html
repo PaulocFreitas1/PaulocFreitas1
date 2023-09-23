@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício flexbox</title>
+    <style>
+        #cabecalho{
+            padding: 20px 23px 23px 23px;
+            background-color: rgb(37, 117, 128);         height: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        ul{display: flex;
+            gap: 30px;
+            margin: 0 0 0 0px;
+            align-self: center;
+        }
+        li,a{list-style: none;
+            text-decoration: none;
+            color:aliceblue;
+        }
+        .login{color: aqua;
+        }
+        .login:hover{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="cabecalho">
+    <h1 class="Ultima">Ultima.</h1>
+    <ul>
+        <li><a href="#">Cursos</a></li>
+        <li><a href="#">Estude de graça</a></li>
+        <li><a class="login" href="https://ultima.school/" target="_blank">Login</a></li>
+    </ul>
+</div>
+</body>
+</html>
