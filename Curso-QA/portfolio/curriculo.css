@@ -1,7 +1,10 @@
 html{
 font-family: 'Noto Sans Old Permic', sans-serif;
 }
-header{}
+body{display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;}
 
 #cabecalho{ background-color: aquamarine;
     padding: 16px;
@@ -10,17 +13,19 @@ header{}
     justify-items: center;
     
 }
-#text{display: flex;
-
-}
+section{    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 27.875rem;}
 #cabecalho h1{display: block;}
-   ul{ 
-   }
-h1{
+h3{
     font-size: 36px;
 }
-li{
-    list-style:none;
+li ul{ 
+    list-style: none;
+}
+.lista{
+    list-style:disc;
 }
 
 a{
@@ -29,15 +34,7 @@ a{
 }
 a:hover{cursor: pointer;
     color: white;}
-    section{
 
-}
-h2,h3{
-
-}
-div{
-
-}
 ul{padding: 12px;
 
 }
