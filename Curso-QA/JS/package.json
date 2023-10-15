@@ -1,0 +1,18 @@
+{
+  "name": "modulo3-w2",
+  "version": "1.0.0",
+  "description": "modulo3 js",
+  "main": "exercicio2.js",
+  "scripts": {
+    "test": "node ./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulocFreitas1"
+  },
+  "author": "PaulocFreitas1",
+  "license": "ISC",
+  "dependencies": {
+    "calculadora": "^1.0.1"
+  }
+}
