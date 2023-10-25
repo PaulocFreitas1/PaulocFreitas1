@@ -5,11 +5,11 @@ body{    display: grid;
     justify-items: center;
  background-image: url("./background.jpg");
 }
-header{
-    display: flex;
+header{ display: flex;
     height: auto;
     width: 98%;
 }
+
 #h-left{display:flex;
     width: 50%;
     height: auto;
@@ -23,11 +23,12 @@ header{
 }
 #h-right{ display: grid;
     width: 50%;
+    font-family: poppins semi bold;
 }
 a{
     text-decoration:none;
 }
-#h-right ul{   display: flex;
+#h-right ul{display: flex;
     list-style: none;
     text-align: center;
     justify-content: space-evenly;
@@ -40,29 +41,48 @@ section{display: flex;
     height: 500px;
     background: #bbd2da7a;
 }
+.t-header{display: flex;
+justify-content: space-between;
+width: 47vw;
+align-items: center;
+}
 div h3{
     font-size: 33px;
 }
-div button{
-    color: aquamarine;
+.t-header a{display: grid;
+    background: #88afc0;
+    font-family: avenir light;
+    font-size: 17px;
+    height: 3.2rem;
+    width: 8rem;
+    border-radius: 32px;
+    align-items: center;
+    justify-items: center;
+}
+.t-header a:hover{
+    background: rgb(88, 180, 241);
+    cursor: pointer;
 }
 container{
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    list-style: none;
-    align-items: center;
     padding: 3.5rem;
-    margin-top: 5%;
-    background: #bbd2da7a;
-    width: auto;
+    margin-top: 1%;
+    background: #43839a70;
+    width: 40vw;
     height: 21rem;
 }
-#cont-left{  width: 50%;
+#cont-left{    display: flex;
+    width: 50%;
     height: auto;
+    flex-direction: column;
 }
-#cont-right{  width: 50%;
+#cont-left p{height: 10px;
+}
+#cont-right{     display: flex;
+    width: 50%;
     height: auto;
+    flex-direction: column;
+    text-align: justify;
 }
 a{
     text-decoration: none;
