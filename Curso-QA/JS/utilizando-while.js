@@ -1,8 +1,6 @@
-let multiplier = 1;
+let c = 1;
+while (  c =>5){
+        console.log (`c`);
+        c++
+}
 
-while (
-    multiplier <= 10) {
-        const result = 2 * multiplier;
-        console.log (`2 x ${multiplier} = ${result}`);
-        multiplier++;
-    }
