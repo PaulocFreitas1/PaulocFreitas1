@@ -1,10 +1,10 @@
 const Pessoa_aqui = require ('./classPessoa')
 
-const pessoa = new Pessoa_aqui('testeNome', 'testeSobrenome'); 
+const pessoa = new Pessoa_aqui('Paulo', 'César', "21"); 
 
 console.log(pessoa.nome); // testeNome 
 console.log(pessoa.sobrenome); // testeSobrenome 
-
+console.log(pessoa.idade);
 pessoa.exibir("texto") // chama metodo exibir
 
 console.log("======================"); // testeSobrenome 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-        "start": "node ./src/ex1.js"
+        "start": "node ./src/ex1_sintaxe_literal.js"
         
   },
   "author": "",
