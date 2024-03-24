@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "9086e357-b380-4c4f-8b39-6089e4ace0a9",
+		"name": "Api escola",
+		"description": "class mod 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33701804"
+	},
+	"item": [
+		{
+			"name": "usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							" });\r",
+							" \r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url_base}}"
+			},
+			"response": []
+		},
+		{
+			"name": "criar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Paulo Cesar\",\r\n        \"username\": \"PC\",\r\n        \"email\": \"Paulocesar.teste@kory.org\",\r\n        \"address\": {\r\n            \"street\": \"Hoeger Mall\",\r\n            \"suite\": \"Apt. 692\",\r\n            \"city\": \"South Elvis\",\r\n            \"zipcode\": \"53919-4257\"\r\n            }}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://jsonplaceholder.typicode.com/users"
+			},
+			"response": []
+		}
+	]
+}
