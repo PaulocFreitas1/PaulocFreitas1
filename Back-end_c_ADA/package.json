@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "node": "^23.4.0"
+  },
+  "name": "back-end_c_ada",
+  "description": "OLÁ, COMECEI O CURSO NA TRILHA DE BACK-END DA PARCERIA COM A SANTANDER E ADA. \r ---\r TUDO QUE ESTIVER NESSAS PASTA SERÁ SOBRE O PROCESSO SELETIVO PARA RECEBER O CURSO COMPLETO NA INSTITUIÇÃO DA ADA.\r --",
+  "version": "1.0.0",
+  "main": "arquivos.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "paulocf",
+  "license": "ISC"
+}
