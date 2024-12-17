@@ -1,5 +1,8 @@
 const path= require('node:path') // esse node é para garantir q busq so no node
 const fs=require('node:fs')
+const dotenv = require('dotenv')
+dotenv.config()
+console.log(process.env.NODE_ENV)
 
 const filePath = path.join(process.cwd(), 'texto.txt')
 const fileOutPath = path.join(process.cwd(), 'texto-com-linhas.txt')
@@ -20,6 +23,7 @@ fs.writeFile(fileOutPath, linhasAjustadas.join('\n'), {}, (erro)=> {//sobrescrev
     if(erro) {
          console.log(`Erro na leitura do arquivo no caminho ${fileOutPath}`)
      }
+     console.log(`Arquivo salvo no bucket(p1_pc) ${process.env.S1_PC}`)
     })
 })
 
