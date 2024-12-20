@@ -1,4 +1,6 @@
-const searchedUrl = 'google.com' 
+async function bootstrap() {
+   
+    const searchedUrl = 'google.com'
     
     console.time('Pesquisando url por DNS padrão')
     const addresses = await dns.promises.resolve4(searchedUrl)
@@ -21,6 +23,7 @@ const searchedUrl = 'google.com'
         console.timeEnd('Pesquisando url por DNS especifico')
         console.log(addresses)
     })
+    }
 bootstrap()
 
 
