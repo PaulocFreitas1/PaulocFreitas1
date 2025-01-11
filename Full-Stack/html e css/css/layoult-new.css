@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url(./style-new.css);
+		   /* arquivo padrao de cabeçalho e footer */
+           h2+p{background-color: #eee;}
+p {
+	color: #454545;
+	border-color: #888;
+}
+
+header p {
+	color: #454545;
+	font-size: 1rem;
+}
+
+
+div ~ p {
+	text-transform: unset;
+
+}
+
+h3 {
+	/* declaração resumida / completa */
+	font: italic bold 1.2rem/2 sans-serif;
+}
+       h1,h2{color:rgb(37, 117, 128);}
+            header {
+            background-color:rgba(2, 173, 145, 0.555);
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: rgb(37, 117, 128);}
+            /* Pseudo-classes */
+            h3 {
+                /* declaração resumida / completa */
+                font: italic bold 1.2rem/2 sans-serif;
+            }
+h2:hover {
+	color: #888;
+}
+            footer {
+            background-color: rgba(2, 173, 145, 0.555);
+            padding:15px;
+            text-align: center;
+            color: rgb(37, 117, 128);}
+            
+        
+            /*modulo 9*/
+            .colums{display: block;
+                    width: 33.5%;
+                    float: left;
+                    padding: 5px;
+                    background: #888;
+                    border: 1px solid #454545 ;
+            }
+        /*Web Resposive Designer*/
+/*Tamanho minimo de tela para aplicação*/
+@media(max-width:1280px){
+    nav, article, table{
+    width: 100%;
+}
+}
+@media(max-width:809px){
+    body{background-color: #0e3c5375}
+}
+  /*Tablets*/
+  @media(max-width: 810px){
+        .instagram{ margin-left:32vw;}
+        iframe{width: 100%;}
+        
+        h3,p,a{
+            font-size: 1.2rem;
+        }
+    }
+    /*Tamanho maximo de tela para barra de rolagem*/
+@media(max-width: 679px){
+    .table-container{overflow:scroll}
+}
+/*Smartphones*/
+@media(max-width:415px){
+    .table-container{overflow-x:auto}
+    h3, p, table td, table th{
+        font-size:1rem}
+    .table-container>h3{
+        font-size: 1.1rem }
+    .instagram{
+        border-radius: 35%;
+        margin-left:22vw;}
+    iframe{width: 100%;}
+    .colums{width: 98%;}
+    .colums3{  
+        width: 98% !important;
+        height: 264px !important;
+        text-align: justify !important;
+      }
+    }
+    
+
