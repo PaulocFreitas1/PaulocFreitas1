@@ -48,9 +48,6 @@ p{
 section{
     font-size: 1.5rem;
 }
-ol{
-
-}
 ol li{
     font-size: 1.4rem;
     color: rgba(126, 91, 63, 0.664);
@@ -76,10 +73,10 @@ nav a{
     color: black;
 }
 nav ul:hover{
-
+    color: beige;
 }
 nav a:hover{
-
+    color:aquamarine;
 }
 
 footer{width: 100%;
