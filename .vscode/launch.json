@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "condicionais",
+            "request": "launch",
+            "mainClass": "condicionais",
+            "projectName": "PaulocFreitas1_384f26e9"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Open newletter.html",

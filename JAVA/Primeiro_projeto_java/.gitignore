@@ -1,2 +1,11 @@
 launch.json
 settings.json
+.vscode
+bin/
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.iml
+.idea/ 
