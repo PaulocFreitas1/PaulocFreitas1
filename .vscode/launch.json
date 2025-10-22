@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "switch_case",
+            "request": "launch",
+            "mainClass": "switch_case",
+            "projectName": "PaulocFreitas1_384f26e9"
+        },
+        {
+            "type": "java",
             "name": "condicionais",
             "request": "launch",
             "mainClass": "condicionais",
