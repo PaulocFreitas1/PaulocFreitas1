@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "while_do_while",
+            "request": "launch",
+            "mainClass": "while_do_while",
+            "projectName": "PaulocFreitas1_384f26e9"
+        },
+        {
+            "type": "java",
             "name": "switch_case",
             "request": "launch",
             "mainClass": "switch_case",
