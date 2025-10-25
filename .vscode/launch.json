@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Projeto_calculo_de_pares",
+            "request": "launch",
+            "mainClass": "Projeto_calculo_de_pares",
+            "projectName": "PaulocFreitas1_384f26e9"
+        },
+        {
+            "type": "java",
             "name": "Projeto_Calculadora_IMC",
             "request": "launch",
             "mainClass": "Projeto_Calculadora_IMC",
