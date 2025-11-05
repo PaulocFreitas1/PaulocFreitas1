@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Potência e Energia</title>
+    <!-- Carregamento do Tailwind CSS para estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilização para a fonte Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Fundo escuro */
+            color: #c9d1d9; /* Cor do texto claro */
+        }
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        input[type="number"] {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+        }
+        .result-box {
+            min-height: 80px;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <script>
+        // Configuração do Tailwind (opcional, mas bom para garantir cores)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-blue': '#217bbf',
+                        'custom-green': '#34a853',
+                        'custom-red': '#ea4335',
+                    }
+                }
+            }
+        }
+
+        /**
+         * Realiza o cálculo da Potência Média e a verificação do limite para o sinal senoidal.
+         * Assumes que a carga é unitária (R = 1 Ohm).
+         * Fórmula: P = A^2 / 2
+         */
+        function calcularPotencia() {
+            const A = parseFloat(document.getElementById('amplitude').value);
+            const P_max = parseFloat(document.getElementById('potencia_max').value);
+            const resultBox = document.getElementById('resultado_potencia');
+
+            if (isNaN(A) || isNaN(P_max) || P_max <= 0) {
+                resultBox.innerHTML = '<p class="text-sm text-yellow-500">Por favor, insira valores válidos.</p>';
+                return;
+            }
+
+            // Cálculo da Potência Média (W)
+            const P_calc = (A * A) / 2;
+            const P_calc_rounded = P_calc.toFixed(2);
+
+            let statusColor = '';
+            let statusText = '';
+
+            if (P_calc > P_max) {
+                statusColor = 'bg-custom-red';
+                statusText = 'EXCEDE O LIMITE';
+            } else {
+                statusColor = 'bg-custom-green';
+                statusText = 'DENTRO DO LIMITE';
+            }
+
+            resultBox.innerHTML = `
+                <div class="space-y-2">
+                    <p class="text-lg font-bold text-white">Potência Calculada (P): <span class="text-custom-blue">${P_calc_rounded} W</span></p>
+                    <div class="p-2 rounded-lg text-center font-bold ${statusColor}">
+                        ${statusText} (${P_max} W)
+                    </div>
+                </div>
+            `;
+        }
+
+        /**
+         * Realiza o cálculo da Energia Total e a verificação do limite para o sinal exponencial.
+         * Fórmula: E = (A_e^2 / 2) * (e^(2*T2) - e^(2*T1))
+         */
+        function calcularEnergia() {
+            const Ae = parseFloat(document.getElementById('multiplicador_e').value);
+            const T1 = parseFloat(document.getElementById('tempo_inicial').value);
+            const T2 = parseFloat(document.getElementById('tempo_final').value);
+            const E_max = parseFloat(document.getElementById('energia_max').value);
+            const resultBox = document.getElementById('resultado_energia');
+
+            if (isNaN(Ae) || isNaN(T1) || isNaN(T2) || isNaN(E_max) || T2 <= T1 || E_max <= 0) {
+                resultBox.innerHTML = '<p class="text-sm text-yellow-500">Por favor, insira valores válidos. Certifique-se que T2 > T1 e Emax > 0.</p>';
+                return;
+            }
+
+            // Cálculo da Energia Total (J)
+            const E_calc = (Ae * Ae / 2) * (Math.exp(2 * T2) - Math.exp(2 * T1));
+            const E_calc_rounded = E_calc.toFixed(2);
+
+            let statusColor = '';
+            let statusText = '';
+
+            if (E_calc > E_max) {
+                statusColor = 'bg-custom-red';
+                statusText = 'EXCEDE O LIMITE';
+            } else {
+                statusColor = 'bg-custom-green';
+                statusText = 'DENTRO DO LIMITE';
+            }
+
+            resultBox.innerHTML = `
+                <div class="space-y-2">
+                    <p class="text-lg font-bold text-white">Energia Calculada (E): <span class="text-custom-blue">${E_calc_rounded} J</span></p>
+                    <div class="p-2 rounded-lg text-center font-bold ${statusColor}">
+                        ${statusText} (${E_max} J)
+                    </div>
+                </div>
+            `;
+        }
+
+        // Função para carregar os valores iniciais do problema original (100, 60 e 4, 0, 1, 200)
+        function carregarValoresIniciais() {
+            // Sinal de Potência
+            document.getElementById('amplitude').value = 100;
+            document.getElementById('potencia_max').value = 60;
+            calcularPotencia();
+
+            // Sinal de Energia
+            document.getElementById('multiplicador_e').value = 4;
+            document.getElementById('tempo_inicial').value = 0;
+            document.getElementById('tempo_final').value = 1;
+            document.getElementById('energia_max').value = 200;
+            calcularEnergia();
+        }
+
+        // Adicionar listeners para cálculo em tempo real
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputsPotencia = document.querySelectorAll('#secao_potencia input');
+            inputsPotencia.forEach(input => input.addEventListener('input', calcularPotencia));
+
+            const inputsEnergia = document.querySelectorAll('#secao_energia input');
+            inputsEnergia.forEach(input => input.addEventListener('input', calcularEnergia));
+
+            // Carregar valores do problema original ao iniciar
+            carregarValoresIniciais();
+        });
+    </script>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+        <header class="text-center pb-4">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-custom-blue border-b border-custom-blue pb-2">
+                Verificador de Carga do Amplificador
+            </h1>
+            <p class="mt-2 text-gray-400">Insira os parâmetros dos sinais para calcular a potência e a energia consumidas e verificar se excedem os limites.</p>
+        </header>
+
+        <!-- Botão para carregar dados do problema original -->
+        <button onclick="carregarValoresIniciais()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200">
+            Carregar Dados do Problema Original (A=100, Pmax=60, Ae=4, T1=0, T2=1, Emax=200)
+        </button>
+
+        <!-- SEÇÃO DO SINAL DE POTÊNCIA (x1(t) = A * sin(2πft)) -->
+        <div id="secao_potencia" class="card p-6 rounded-xl space-y-4">
+            <h2 class="text-2xl font-semibold border-b border-gray-600 pb-2 text-custom-blue">Sinal de Potência ($x_1(t)$)</h2>
+            <p class="text-sm text-gray-400">Fórmula de Potência Média (P): $\frac{A^2}{2}$ (Assume $R=1\Omega$)</p>
+
+            <!-- Inputs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="amplitude" class="block text-sm font-medium text-gray-300">Amplitude (A)</label>
+                    <input type="number" id="amplitude" class="mt-1 block w-full p-2 rounded-md shadow-sm" placeholder="Ex: 100" value="100" min="0">
+                </div>
+                <div>
+                    <label for="potencia_max" class="block text-sm font-medium text-gray-300">Limite de Potência ($P_{\max}$ em W)</label>
+                    <input type="number" id="potencia_max" class="mt-1 block w-full p-2 rounded-md shadow-sm" placeholder="Ex: 60" value="60" min="0">
+                </div>
+            </div>
+
+            <!-- Resultado -->
+            <div id="resultado_potencia" class="result-box mt-4 p-4 rounded-lg border-2 border-gray-600 flex items-center justify-center text-center">
+                <!-- O resultado será inserido aqui pelo JavaScript -->
+            </div>
+        </div>
+
+        <!-- SEÇÃO DO SINAL DE ENERGIA (x2(t) = A_e * e^t) -->
+        <div id="secao_energia" class="card p-6 rounded-xl space-y-4">
+            <h2 class="text-2xl font-semibold border-b border-gray-600 pb-2 text-custom-blue">Sinal de Energia ($x_2(t)$)</h2>
+            <p class="text-sm text-gray-400">Fórmula de Energia Total (E): $\frac{A_e^2}{2}(e^{2T_2} - e^{2T_1})$</p>
+
+            <!-- Inputs -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <label for="multiplicador_e" class="block text-sm font-medium text-gray-300">Multiplicador ($A_e$)</label>
+                    <input type="number" id="multiplicador_e" class="mt-1 block w-full p-2 rounded-md shadow-sm" placeholder="Ex: 4" value="4" min="0">
+                </div>
+                <div>
+                    <label for="tempo_inicial" class="block text-sm font-medium text-gray-300">Tempo Inicial ($T_1$)</label>
+                    <input type="number" id="tempo_inicial" class="mt-1 block w-full p-2 rounded-md shadow-sm" placeholder="Ex: 0" value="0">
+                </div>
+                <div>
+                    <label for="tempo_final" class="block text-sm font-medium text-gray-300">Tempo Final ($T_2$)</label>
+                    <input type="number" id="tempo_final" class="mt-1 block w-full p-2 rounded-md shadow-sm" placeholder="Ex: 1" value="1" min="0">
+                </div>
+                <div>
+                    <label for="energia_max" class="block text-sm font-medium text-gray-300">Limite de Energia ($E_{\max}$ em J)</label>
+                    <input type="number" id="energia_max" class="mt-1 block w-full p-2 rounded-md shadow-sm" placeholder="Ex: 200" value="200" min="0">
+                </div>
+            </div>
+
+            <!-- Resultado -->
+            <div id="resultado_energia" class="result-box mt-4 p-4 rounded-lg border-2 border-gray-600 flex items-center justify-center text-center">
+                <!-- O resultado será inserido aqui pelo JavaScript -->
+            </div>
+        </div>
+
+        <footer class="text-center text-sm text-gray-500 pt-4">
+            <p>Observação: Todos os cálculos assumem uma carga unitária de $R=1 \Omega$.</p>
+        </footer>
+    </div>
+</body>
+</html>
